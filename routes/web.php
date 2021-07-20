@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'vocabulary', 'as' => 'vocabulary.', 'namespace' => 'User'], function () {
+    Route::get('/', 'VocabularyController@index')->name('index');
+});
