@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class VocabularyController extends Controller
 {
+    /**
+     * display vocabulary list
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('user.vocabulary.index');
