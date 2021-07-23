@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Vocabulary;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -17,6 +18,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
+
+    public function vocabulary()
+    {
+        return $this->hasMany(Vocabulary::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.
