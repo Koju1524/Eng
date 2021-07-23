@@ -11,4 +11,14 @@ class VocabularyController extends Controller
     {
         return view('user.vocabulary.index');
     }
+
+    /**
+     * display vocabulary form
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create()
+    {
+        return view('user.vocabulary.create');
+    }
 }
