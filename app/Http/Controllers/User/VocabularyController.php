@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 class VocabularyController extends Controller
 {
-    private $vocabulary;
-    private $category;
+    // private $vocabulary;
+    // private $category;
 
-    public function __construct(Vocabulary $vocabulary, Category $category)
-    {
-        $this->vocabulary = $vocabulary;
-        $this->category = $category;
-    }
+    // public function __construct(Vocabulary $vocabulary, Category $category)
+    // {
+    //     $this->vocabulary = $vocabulary;
+    //     $this->category = $category;
+    // }
 
     /**
      * display vocabulary list
@@ -34,6 +34,7 @@ class VocabularyController extends Controller
      */
     public function create()
     {
-        return view('user.vocabulary.create');
+        $categories = Category::pluck('name');
+        return view('user.vocabulary.create', compact('categories'));
     }
 }
