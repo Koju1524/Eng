@@ -15,9 +15,10 @@ class CreateVocabularyTable extends Migration
     {
         Schema::create('vocabulary', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->string('word');
             $table->text('sentence');
-            $table->integer('category_id')->unsigned();
             $table->softDeletes();
         });
     }
