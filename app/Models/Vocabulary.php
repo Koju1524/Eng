@@ -15,6 +15,8 @@ class Vocabulary extends Model
 
     protected $table = 'vocabulary';
 
+    public $timestamps = false;
+
     public function user()
     {
         return $this->belongsTo(User::class);
