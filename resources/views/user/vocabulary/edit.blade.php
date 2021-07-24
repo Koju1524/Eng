@@ -9,29 +9,29 @@
       {{ Form::label('word', 'Word', ['class'=>'col-sm-3 col-form-label']) }}
       {!! Form::text('word', $vocabulary->word, ['class' => 'col-sm-9 form-control', 'placeholder' => 'word']) !!}
       </div>
-      {{-- @if ($errors->has('word'))
+      @if ($errors->has('word'))
         @foreach ($errors->get('word') as $message)
           <span>{{ $message }}</span>
         @endforeach
-      @endif --}}
+      @endif
       <div class="form-group row">
         {{ Form::label('category_id', 'Category', ['class'=>'col-sm-3 col-form-label']) }}
         {!! Form::select('category_id', $categories, $vocabulary->category_id, ['class' => 'col-sm-9 form-control', 'placeholder' => 'Choose category']) !!}
       </div>
-      {{-- @if ($errors->has('category_id'))
+      @if ($errors->has('category_id'))
         @foreach ($errors->get('category_id') as $message)
           <span>{{ $message }}</span>
         @endforeach
-      @endif --}}
+      @endif
       <div class="form-group row">
         {{ Form::label('sentence', 'sentence', ['class'=>'col-sm-3 col-form-label']) }}
         {!! Form::textarea('sentence', $vocabulary->sentence, ['class' => 'col-sm-9 form-control', 'placeholder' => 'example sentece']) !!}
       </div>
-      {{-- @if ($errors->has('sentence'))
+      @if ($errors->has('sentence'))
         @foreach ($errors->get('sentence') as $message)
           <span>{{ $message }}</span>
         @endforeach
-      @endif --}}
+      @endif
       {{ Form::submit('Add', ['class' => 'btn btn-primary']) }}
     {!! Form::close() !!}
     </div>
