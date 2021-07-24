@@ -13,6 +13,8 @@ class Vocabulary extends Model
         'sentence',
     ];
 
+    protected $table = 'vocabulary';
+
     public function user()
     {
         return $this->belongsTo(User::class);
