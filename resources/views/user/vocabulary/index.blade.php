@@ -18,7 +18,7 @@
           <th scope="row">{{ $word->id }}</th>
           <td>{{ $word->word }}</td>
           <td>
-            <a href="#">
+            <a href="{{ route('vocabulary.show', $word->id) }}">
               <button class="btn btn-primary">Show</button>
             </a>
           </td>
