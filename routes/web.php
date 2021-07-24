@@ -22,4 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'vocabulary', 'as' => 'vocabulary.', 'namespace' => 'User'], function () {
     Route::get('/', 'VocabularyController@index')->name('index');
     Route::get('/create', 'VocabularyController@create')->name('create');
+    Route::post('/', 'VocabularyController@store')->name('store');
 });
