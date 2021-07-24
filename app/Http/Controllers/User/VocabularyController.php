@@ -84,4 +84,16 @@ class VocabularyController extends Controller
         $this->vocabulary->find($vocabularyId)->fill($inputs)->save();
         return redirect()->route('vocabulary.index');
     }
+
+    /**
+     * display vocabulary detail
+     *
+     * @param integer $vocabularyId
+     * @return \Illuminate\View\View
+     */
+    public function show($vocabularyId)
+    {
+        $vocabulary = $this->vocabulary->find($vocabularyId);
+        return view('user.vocabulary.show', compact('vocabulary'));
+    }
 }
