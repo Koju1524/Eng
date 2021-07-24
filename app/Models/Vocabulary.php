@@ -29,4 +29,16 @@ class Vocabulary extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * update vocabulary
+     *
+     * @param array $inputs
+     * @param integer $vocabularyId
+     * @return void
+     */
+    public function updateVocabulary($inputs, $vocabularyId)
+    {
+        $this->find($vocabularyId)->fill($inputs)->save();
+    }
 }

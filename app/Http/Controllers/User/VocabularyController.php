@@ -81,7 +81,7 @@ class VocabularyController extends Controller
     {
         $inputs = $request->validated();
         $inputs['user_id'] = Auth::id();
-        $this->vocabulary->find($vocabularyId)->fill($inputs)->save();
+        $this->vocabulary->updateVocabulary($inputs, $vocabularyId);
         return redirect()->route('vocabulary.index');
     }
 
