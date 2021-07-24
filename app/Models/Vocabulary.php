@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vocabulary extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'word',
+        'category_id',
+        'sentence',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
