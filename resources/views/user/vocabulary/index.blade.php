@@ -28,9 +28,9 @@
             </a>
           </td>
           <td>
-            {{-- {!! Form::open(['route' => ['vocabulary.destroy', $word->id], 'method' => 'DELETE']) !!} --}}
+            {!! Form::open(['route' => ['vocabulary.destroy', $word->id], 'method' => 'DELETE']) !!}
               {!! Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) !!}
-            {{-- {!! Form::close() !!} --}}
+            {!! Form::close() !!}
           </td>
         </tr>
       </tbody>
