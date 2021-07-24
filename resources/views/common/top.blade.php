@@ -28,6 +28,9 @@
             <a href="{{ route('login') }}">
               <button class="btn btn-success">Login</button>
             </a>
+            <a href="#">
+              <button class="btn btn-success">Logout</button>
+            </a>
             <a href="{{ route('vocabulary.create') }}">
               <button class="btn btn-success">Add</button>
             </a>
