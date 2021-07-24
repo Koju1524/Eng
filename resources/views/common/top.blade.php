@@ -21,7 +21,9 @@
     <div class="container-fluid bg-dark mb-3">
       <div class="container">
         <nav class="navbar navbar-dark">
-          <span class="navbar-brand mb-0 h1">English_App</span>
+          <a href="{{ route('vocabulary.index') }}">
+            <span class="navbar-brand mb-0 h1">English_App</span>
+          </a>
           <div>
             <a href="#">
               <button class="btn btn-success">login</button>
