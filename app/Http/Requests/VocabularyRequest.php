@@ -13,7 +13,7 @@ class VocabularyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,34 @@ class VocabularyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'word' => [
+                'required',
+                'max:40',
+            ],
+
+            'sentence' => [
+                'required',
+                'max:50',
+            ],
+
+            'category_id' => [
+                'required',
+                'exists:categories,id',
+            ],
+        ];
+    }
+
+    /**
+     * display error messages
+     *
+     * @return void
+     */
+    public function messages()
+    {
+        return [
+            'required' => 'Please fill out',
+            'max' => 'Please fill out within max: letters',
+            'exist' => 'This category is no exist',
         ];
     }
 }
