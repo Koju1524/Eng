@@ -16,6 +16,7 @@ class VocabularyController extends Controller
 
     public function __construct(Vocabulary $vocabulary, Category $category)
     {
+        $this->middleware('auth');
         $this->vocabulary = $vocabulary;
         $this->category = $category;
     }
