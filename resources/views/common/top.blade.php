@@ -25,11 +25,11 @@
             <span class="navbar-brand mb-0 h1">English_App</span>
           </a>
           <div>
-            <a href="#">
-              <button class="btn btn-success">login</button>
+            <a href="{{ route('login') }}">
+              <button class="btn btn-success">Login</button>
             </a>
             <a href="{{ route('vocabulary.create') }}">
-              <button class="btn btn-success">ADD</button>
+              <button class="btn btn-success">Add</button>
             </a>
           </div>
         </nav>
