@@ -56,4 +56,17 @@ class VocabularyController extends Controller
         $this->vocabulary->fill($inputs)->save();
         return redirect()->route('vocabulary.index');
     }
+
+    /**
+     * display edit form
+     *
+     * @param integer $vocabularyId
+     * @return \Illuminate\View\View
+     */
+    public function edit($vocabularyId)
+    {
+        $categories = Category::pluck('name', 'id');
+        $vocabulary =$this->vocabulary->find($vocabularyId);
+        return view('user.vocabulary.edit', compact('categories', 'vocabulary'));
+    }
 }
