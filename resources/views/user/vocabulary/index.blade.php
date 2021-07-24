@@ -12,27 +12,29 @@
       <th scope="col">Delete</th>
     </tr>
     </thead>
-    <tbody>
-      <tr>
-        <th scope="row">id</th>
-        <td>word</td>
-        <td>
-          <a href="#">
-            <button class="btn btn-primary">Show</button>
-          </a>
-        </td>
-        <td>
-          <a href="#">
-            <button class="btn btn-success">Edit</button>
-          </a>
-        </td>
-        <td>
-          {{-- {!! Form::open(['route' => ['vocabulary.destroy', $word->id], 'method' => 'DELETE']) !!} --}}
-            {!! Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) !!}
-          {{-- {!! Form::close() !!} --}}
-        </td>
-      </tr>
-    </tbody>
+    @foreach ($vocabulary as $word)
+      <tbody>
+        <tr>
+          <th scope="row">{{ $word->id }}</th>
+          <td>{{ $word->word }}</td>
+          <td>
+            <a href="#">
+              <button class="btn btn-primary">Show</button>
+            </a>
+          </td>
+          <td>
+            <a href="#">
+              <button class="btn btn-success">Edit</button>
+            </a>
+          </td>
+          <td>
+            {{-- {!! Form::open(['route' => ['vocabulary.destroy', $word->id], 'method' => 'DELETE']) !!} --}}
+              {!! Form::button('Delete', ['class' => 'btn btn-danger', 'type' => 'submit']) !!}
+            {{-- {!! Form::close() !!} --}}
+          </td>
+        </tr>
+      </tbody>
+    @endforeach
   </table>
 </div>
 
