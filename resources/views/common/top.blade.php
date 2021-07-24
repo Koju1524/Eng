@@ -25,12 +25,18 @@
             <span class="navbar-brand mb-0 h1">English_App</span>
           </a>
           <div>
+          @if (Auth::check())
             {!! Form::open(['route' => ['logout'], 'method' => 'POST']) !!}
               {{ Form::submit('Logout', ['class' => 'btn btn-success']) }}
             {!! Form::close() !!}
-            <a href="{{ route('vocabulary.create') }}">
-              <button class="btn btn-success">Add</button>
-            </a>
+          @else
+            {!! Form::open(['route' => ['login'], 'method' => 'POST']) !!}
+              {{ Form::submit('Login', ['class' => 'btn btn-success']) }}
+            {!! Form::close() !!}
+          @endif
+          <a href="{{ route('vocabulary.create') }}">
+            <button class="btn btn-success">Add</button>
+          </a>
           </div>
         </nav>
       </div>
