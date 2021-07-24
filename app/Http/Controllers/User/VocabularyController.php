@@ -28,7 +28,8 @@ class VocabularyController extends Controller
      */
     public function index()
     {
-        return view('user.vocabulary.index');
+        $vocabulary = $this->vocabulary->all();
+        return view('user.vocabulary.index', compact('vocabulary'));
     }
 
     /**
