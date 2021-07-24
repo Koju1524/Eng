@@ -4,19 +4,34 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-6">
-    {!! Form::open() !!}
+    {!! Form::open(['route' => 'vocabulary.store']) !!}
       <div class="form-group row">
       {{ Form::label('word', 'Word', ['class'=>'col-sm-3 col-form-label']) }}
       {!! Form::text('word', null, ['class' => 'col-sm-9 form-control', 'placeholder' => 'word']) !!}
       </div>
+      @if ($errors->has('word'))
+        @foreach ($errors->get('word') as $message)
+          <span>{{ $message }}</span>
+        @endforeach
+      @endif
       <div class="form-group row">
-        {{ Form::label('category', 'Category', ['class'=>'col-sm-3 col-form-label']) }}
-        {!! Form::select('category', $categories, 'Choose category', ['class' => 'col-sm-9 form-control', 'placeholder' => 'Choose category']) !!}
-        </div>
-      <div class="form-group row">
-      {{ Form::label('sentence', 'sentence', ['class'=>'col-sm-3 col-form-label']) }}
-      {!! Form::textarea('sentence', null, ['class' => 'col-sm-9 form-control', 'placeholder' => 'example sentece']) !!}
+        {{ Form::label('category_id', 'Category', ['class'=>'col-sm-3 col-form-label']) }}
+        {!! Form::select('category_id', $categories, false, ['class' => 'col-sm-9 form-control', 'placeholder' => 'Choose category']) !!}
       </div>
+      @if ($errors->has('category_id'))
+        @foreach ($errors->get('category_id') as $message)
+          <span>{{ $message }}</span>
+        @endforeach
+      @endif
+      <div class="form-group row">
+        {{ Form::label('sentence', 'sentence', ['class'=>'col-sm-3 col-form-label']) }}
+        {!! Form::textarea('sentence', null, ['class' => 'col-sm-9 form-control', 'placeholder' => 'example sentece']) !!}
+      </div>
+      @if ($errors->has('sentence'))
+        @foreach ($errors->get('sentence') as $message)
+          <span>{{ $message }}</span>
+        @endforeach
+      @endif
       {{ Form::submit('Add', ['class' => 'btn btn-primary']) }}
     {!! Form::close() !!}
     </div>
