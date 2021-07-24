@@ -23,7 +23,7 @@
             </a>
           </td>
           <td>
-            <a href="#">
+            <a href="{{ route('vocabulary.edit', $word->id)}}">
               <button class="btn btn-success">Edit</button>
             </a>
           </td>
