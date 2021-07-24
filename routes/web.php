@@ -26,4 +26,5 @@ Route::group(['prefix' => 'vocabulary', 'as' => 'vocabulary.', 'namespace' => 'U
     Route::get('/{id}/edit', 'VocabularyController@edit')->name('edit');
     Route::put('/{id}', 'VocabularyController@update')->name('update');
     Route::get('/{id}', 'VocabularyController@show')->name('show');
+    Route::delete('/{id}', 'VocabularyController@destroy')->name('destroy');
 });
