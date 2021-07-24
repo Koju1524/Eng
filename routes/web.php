@@ -24,4 +24,5 @@ Route::group(['prefix' => 'vocabulary', 'as' => 'vocabulary.', 'namespace' => 'U
     Route::get('/create', 'VocabularyController@create')->name('create');
     Route::post('/', 'VocabularyController@store')->name('store');
     Route::get('/{id}/edit', 'VocabularyController@edit')->name('edit');
+    Route::put('/{id}', 'VocabularyController@update')->name('update');
 });
