@@ -26,17 +26,17 @@ class VocabularyRequest extends FormRequest
         return [
             'word' => [
                 'required',
-                'max:40',
+                'max:40'
             ],
 
             'sentence' => [
                 'required',
-                'max:50',
+                'max:50'
             ],
 
             'category_id' => [
                 'required',
-                'exists:categories,id',
+                'exists:categories,id'
             ],
         ];
     }
@@ -49,9 +49,9 @@ class VocabularyRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'Please fill out',
-            'max' => 'Please fill out within max: letters',
-            'exist' => 'This category is no exist',
+            'required' => 'Prerequisite item',
+            'max' => 'Please fill out within :max letters',
+            'exists' => 'This category is no exist',
         ];
     }
 }
