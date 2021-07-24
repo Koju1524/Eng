@@ -96,4 +96,16 @@ class VocabularyController extends Controller
         $vocabulary = $this->vocabulary->find($vocabularyId);
         return view('user.vocabulary.show', compact('vocabulary'));
     }
+
+    /**
+     * delete vocabulary
+     *
+     * @param integer $vocabularyId
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($vocabularyId)
+    {
+        $this->vocabulary->find($vocabularyId)->delete();
+        return redirect()->route('vocabulary.index');
+    }
 }
