@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'vocabulary', 'as' => 'vocabulary.', 'namespace' => 'User'], function () {
+    Route::get('/', 'VocabularyController@index')->name('index');
+    Route::get('/create', 'VocabularyController@create')->name('create');
+    Route::post('/', 'VocabularyController@store')->name('store');
+    Route::get('/{id}/edit', 'VocabularyController@edit')->name('edit');
+    Route::put('/{id}', 'VocabularyController@update')->name('update');
+    Route::get('/{id}', 'VocabularyController@show')->name('show');
+    Route::delete('/{id}', 'VocabularyController@destroy')->name('destroy');
+});
