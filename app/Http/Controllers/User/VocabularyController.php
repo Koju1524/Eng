@@ -69,4 +69,19 @@ class VocabularyController extends Controller
         $vocabulary =$this->vocabulary->find($vocabularyId);
         return view('user.vocabulary.edit', compact('categories', 'vocabulary'));
     }
+
+    /**
+     * update vocabulary
+     *
+     * @param VocabularyRequest $request validation
+     * @param integer $vocabularyId
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(VocabularyRequest $request, $vocabularyId)
+    {
+        $inputs = $request->validated();
+        $inputs['user_id'] = Auth::id();
+        $this->vocabulary->find($vocabularyId)->fill($inputs)->save();
+        return redirect()->route('vocabulary.index');
+    }
 }
