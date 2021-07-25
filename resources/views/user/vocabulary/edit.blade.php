@@ -32,7 +32,7 @@
           <span>{{ $message }}</span>
         @endforeach
       @endif
-      {{ Form::submit('Add', ['class' => 'btn btn-primary']) }}
+      {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
     {!! Form::close() !!}
     </div>
   </div>

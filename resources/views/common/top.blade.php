@@ -24,13 +24,19 @@
           <a href="{{ route('vocabulary.index') }}">
             <span class="navbar-brand mb-0 h1">English_App</span>
           </a>
-          <div>
-            <a href="#">
-              <button class="btn btn-success">login</button>
-            </a>
-            <a href="{{ route('vocabulary.create') }}">
-              <button class="btn btn-success">ADD</button>
-            </a>
+          <div class="d-flex">
+          @if (Auth::check())
+            {!! Form::open(['route' => ['logout'], 'method' => 'POST']) !!}
+              {{ Form::submit('Logout', ['class' => 'btn btn-success mr-2']) }}
+            {!! Form::close() !!}
+          @else
+            {!! Form::open(['route' => ['login'], 'method' => 'POST']) !!}
+              {{ Form::submit('Login', ['class' => 'btn btn-success']) }}
+            {!! Form::close() !!}
+          @endif
+          <a href="{{ route('vocabulary.create') }}">
+            <button class="btn btn-success">Add</button>
+          </a>
           </div>
         </nav>
       </div>
