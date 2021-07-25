@@ -29,7 +29,7 @@ class VocabularyController extends Controller
     public function index()
     {
         $categories = Category::pluck('name', 'id');
-        $vocabulary = $this->vocabulary->all();
+        $vocabulary = Vocabulary::with('user', 'category')->get();
         return view('user.vocabulary.index', compact('vocabulary', 'categories'));
     }
 
