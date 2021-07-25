@@ -10,7 +10,7 @@
   <table class="table table-hover">
     <thead class="thead-light">
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">Category</th>
       <th scope="col">Word</th>
       <th scope="col">Show</th>
       <th scope="col">Edit</th>
@@ -20,7 +20,7 @@
     @foreach ($vocabulary as $word)
       <tbody>
         <tr>
-          <th scope="row">{{ $word->id }}</th>
+          <th scope="row">{{ $word->category->name }}</th>
           <td>{{ $word->word }}</td>
           <td>
             <a href="{{ route('vocabulary.show', $word->id) }}">
