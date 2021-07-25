@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+  <div class="category-bar">
+  @foreach ($categories as $id => $name)
+    <div class="btn" id="{{ $id }}">{{ $name }}</div>
+  @endforeach
+  </div>
   <table class="table table-hover">
     <thead class="thead-light">
     <tr>
