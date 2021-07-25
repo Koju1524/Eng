@@ -24,10 +24,10 @@
           <a href="{{ route('vocabulary.index') }}">
             <span class="navbar-brand mb-0 h1">English_App</span>
           </a>
-          <div>
+          <div class="d-flex">
           @if (Auth::check())
             {!! Form::open(['route' => ['logout'], 'method' => 'POST']) !!}
-              {{ Form::submit('Logout', ['class' => 'btn btn-success']) }}
+              {{ Form::submit('Logout', ['class' => 'btn btn-success mr-2']) }}
             {!! Form::close() !!}
           @else
             {!! Form::open(['route' => ['login'], 'method' => 'POST']) !!}
