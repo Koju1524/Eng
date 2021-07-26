@@ -31,6 +31,24 @@ class Vocabulary extends Model
     }
 
     /**
+     * search vocabulary
+     *
+     * @param mixed $inputs by word & category_id
+     * @return Collection
+     */
+    public function searchVocabulary($inputs)
+    {
+        return $this->when(!empty($inputs['category_id']), function ($query) use ($inputs) {
+            $query->where('category_id', $inputs['category_id']);
+        })
+        ->when(isset($inputs['word']) && $inputs['word'] !== '', function ($query) use ($inputs) {
+            $query->where('word', 'like', "%$inputs[word]%");
+        })
+        ->with('user', 'category')
+        ->get();
+    }
+
+    /**
      * update vocabulary
      *
      * @param array $inputs
