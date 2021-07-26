@@ -24,12 +24,14 @@ class VocabularyController extends Controller
     /**
      * display vocabulary list
      *
+     *  @param Request $request
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::pluck('name', 'id');
-        $vocabulary = Vocabulary::with('user', 'category')->get();
+        $inputs = $request->input();
+        $vocabulary = $this->vocabulary->searchVocabulary($inputs);
         return view('user.vocabulary.index', compact('vocabulary', 'categories'));
     }
 
