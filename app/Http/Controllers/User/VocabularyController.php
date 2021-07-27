@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\VocabularyRequest;
 use App\Models\Category;
+use App\Models\Familiarity;
 use App\Models\Vocabulary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +44,8 @@ class VocabularyController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        return view('user.vocabulary.create', compact('categories'));
+        $familiarities =  Familiarity::pluck('degree', 'id');
+        return view('user.vocabulary.create', compact('categories', 'familiarities'));
     }
 
     /**
