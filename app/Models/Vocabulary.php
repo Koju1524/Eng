@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Category;
+use App\Models\Familiarity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -28,6 +30,11 @@ class Vocabulary extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function familiarity()
+    {
+        return $this->belongsTo(Familiarity::class);
     }
 
     /**
