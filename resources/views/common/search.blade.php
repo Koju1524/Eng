@@ -8,6 +8,10 @@
       {{ Form::label('category_id', 'Category', ['class'=>'font-weight-bold']) }}
       {!! Form::select('category_id', $categories, false, ['class' => 'mb-4', 'placeholder' => 'Choose category']) !!}
     </div>
+    <div class="form-group">
+      {{ Form::label('familiarity_id', 'Familiarity', ['class'=>'font-weight-bold']) }}
+      {!! Form::select('familiarity_id', $familiarities, false, ['class' => 'mb-4', 'placeholder' => 'Choose familiarity']) !!}
+    </div>
       <div class="form-group text-center">
         {!! Form::button('<i class="fa fa-search" aria-hidden="true">Search</i>', ['class' => '', 'type' => 'submit']) !!}
       </div>
