@@ -46,7 +46,10 @@ class Vocabulary extends Model
      */
     public function searchVocabulary($inputs)
     {
-        return $this->when(!empty($inputs['category_id']), function ($query) use ($inputs) {
+        return $this->when(!empty($inputs['familiarity_id']), function ($query) use ($inputs) {
+            $query->where('familiarity_id', $inputs['familiarity_id']);
+        })
+        ->when(!empty($inputs['category_id']), function ($query) use ($inputs) {
             $query->where('category_id', $inputs['category_id']);
         })
         ->when(isset($inputs['word']) && $inputs['word'] !== '', function ($query) use ($inputs) {
