@@ -14,8 +14,9 @@ class Vocabulary extends Model
     protected $fillable = [
         'user_id',
         'word',
-        'category_id',
         'sentence',
+        'category_id',
+        'familiarity_id',
     ];
 
     protected $table = 'vocabulary';
