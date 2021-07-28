@@ -31,9 +31,10 @@ class VocabularyController extends Controller
     public function index(Request $request)
     {
         $categories = Category::pluck('name', 'id');
+        $familiarities = Familiarity::pluck('degree', 'id');
         $inputs = $request->input();
         $vocabulary = $this->vocabulary->searchVocabulary($inputs);
-        return view('user.vocabulary.index', compact('vocabulary', 'categories'));
+        return view('user.vocabulary.index', compact('vocabulary', 'categories', 'familiarities'));
     }
 
     /**
@@ -44,7 +45,7 @@ class VocabularyController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        $familiarities =  Familiarity::pluck('degree', 'id');
+        $familiarities = Familiarity::pluck('degree', 'id');
         return view('user.vocabulary.create', compact('categories', 'familiarities'));
     }
 
@@ -71,8 +72,9 @@ class VocabularyController extends Controller
     public function edit($vocabularyId)
     {
         $categories = Category::pluck('name', 'id');
+        $familiarities = Familiarity::pluck('degree', 'id');
         $vocabulary =$this->vocabulary->find($vocabularyId);
-        return view('user.vocabulary.edit', compact('categories', 'vocabulary'));
+        return view('user.vocabulary.edit', compact('categories', 'familiarities' ,'vocabulary'));
     }
 
     /**
