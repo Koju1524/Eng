@@ -38,6 +38,11 @@ class VocabularyRequest extends FormRequest
                 'required',
                 'exists:categories,id'
             ],
+
+            'familiarity_id' => [
+                'required',
+                'exists:familiarities,id'
+            ],
         ];
     }
 
@@ -51,7 +56,7 @@ class VocabularyRequest extends FormRequest
         return [
             'required' => 'Prerequisite item',
             'max' => 'Please fill out within :max letters',
-            'exists' => 'This category is no exist',
+            'exists' => 'This is no exist',
         ];
     }
 }
