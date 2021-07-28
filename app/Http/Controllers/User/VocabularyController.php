@@ -101,7 +101,8 @@ class VocabularyController extends Controller
     public function show($vocabularyId)
     {
         $vocabulary = $this->vocabulary->find($vocabularyId);
-        return view('user.vocabulary.show', compact('vocabulary'));
+        $familiarities = Familiarity::pluck('degree', 'id');
+        return view('user.vocabulary.show', compact('vocabulary', 'familiarities'));
     }
 
     /**
