@@ -15,6 +15,18 @@
         @endforeach
       @endif
       <div class="form-group row">
+      {{ Form::label('familiarity_id', 'Familiarity', ['class'=>'col-sm-3 col-form-label']) }}
+        @foreach ($familiarities as $id => $degree)
+          {!! Form::radio('familiarity_id', $id, $vocabulary->familiarity->$id, ['class' => 'mr-2 radion-btn']) !!}
+          {!! Form::label('familiarity_id', $degree, ['class' => 'mr-2']) !!}
+        @endforeach
+      @if ($errors->has('familiarity_id'))
+        @foreach ($errors->get('familiarity_id') as $message)
+          <span>{{ $message }}</span>
+        @endforeach
+      @endif
+      </div>
+      <div class="form-group row">
         {{ Form::label('category_id', 'Category', ['class'=>'col-sm-3 col-form-label']) }}
         {!! Form::select('category_id', $categories, $vocabulary->category_id, ['class' => 'col-sm-9 form-control', 'placeholder' => 'Choose category']) !!}
       </div>
