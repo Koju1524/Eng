@@ -27,7 +27,7 @@
           <tr>
             <th scope="row">{{ $word->category->name }}</th>
             <td>{{ $word->word }}</td>
-            @if (!empty($word->familiarity_id) && ( $word->familiarity_id <= count($familiarities) ) )
+            @if (!empty($word->familiarity_id) && $word->familiarity_id <= count($familiarities))
               <td>{{ $word->familiarity->degree}}</td>
             @else
               <td></td>
