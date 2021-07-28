@@ -15,6 +15,13 @@
         @endforeach
       @endif
       <div class="form-group row">
+        {{ Form::label('familiarity_id', 'Familiarity', ['class'=>'col-sm-3 col-form-label']) }}
+      @foreach ($familiarities as $id => $degree)
+        {!! Form::radio('familiarity_id', null, false, ['class' => 'mr-2 radion-btn']) !!}
+        {!! Form::label('familiarity_id', $degree, ['class' => 'mr-2']) !!}
+      @endforeach
+      </div>
+      <div class="form-group row">
         {{ Form::label('category_id', 'Category', ['class'=>'col-sm-3 col-form-label']) }}
         {!! Form::select('category_id', $categories, false, ['class' => 'col-sm-9 form-control', 'placeholder' => 'Choose category']) !!}
       </div>
