@@ -4,7 +4,6 @@
 <div class="wrapper d-flex w-100">
 
   @include('common.search')
-
   <div class="container w-75">
     <div class="category-bar">
     @foreach ($categories as $id => $name)
@@ -51,7 +50,7 @@
         </tbody>
       @endforeach
     </table>
-    {{ $vocabulary->links() }}
+    {{ $vocabulary->appends(request()->input())->links() }}
   </div>
 </div>
 
