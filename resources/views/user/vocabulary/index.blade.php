@@ -51,6 +51,7 @@
         </tbody>
       @endforeach
     </table>
+    {{ $vocabulary->links() }}
   </div>
 </div>
 
