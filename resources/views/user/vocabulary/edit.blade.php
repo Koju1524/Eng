@@ -17,7 +17,7 @@
       <div class="form-group row">
       {{ Form::label('familiarity_id', 'Familiarity', ['class'=>'col-sm-3 col-form-label']) }}
         @foreach ($familiarities as $id => $degree)
-          {!! Form::radio('familiarity_id', $id, $vocabulary->familiarity->$id, ['class' => 'mr-2 radion-btn']) !!}
+          {!! Form::radio('familiarity_id', $id, ($id == old('familiarity_id', $vocabulary->familiarity_id)), ['class' => 'mr-2 radion-btn']) !!}
           {!! Form::label('familiarity_id', $degree, ['class' => 'mr-2']) !!}
         @endforeach
       @if ($errors->has('familiarity_id'))
