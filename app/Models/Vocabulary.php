@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Vocabulary extends Model
 {
+    const NUMBER_PAGE  = 7;
+
     use SoftDeletes;
 
     protected $fillable = [
@@ -56,7 +58,7 @@ class Vocabulary extends Model
             $query->where('word', 'like', "%$inputs[word]%");
         })
         ->with('user', 'category')
-        ->get();
+        ->paginate(self::NUMBER_PAGE);
     }
 
     /**
