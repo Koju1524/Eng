@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\VocabularyRequest;
 use App\Models\Category;
+use App\Models\Familiarity;
 use App\Models\Vocabulary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,9 +31,10 @@ class VocabularyController extends Controller
     public function index(Request $request)
     {
         $categories = Category::pluck('name', 'id');
+        $familiarities = Familiarity::pluck('degree', 'id');
         $inputs = $request->input();
         $vocabulary = $this->vocabulary->searchVocabulary($inputs);
-        return view('user.vocabulary.index', compact('vocabulary', 'categories'));
+        return view('user.vocabulary.index', compact('vocabulary', 'categories', 'familiarities'));
     }
 
     /**
@@ -43,7 +45,8 @@ class VocabularyController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        return view('user.vocabulary.create', compact('categories'));
+        $familiarities = Familiarity::pluck('degree', 'id');
+        return view('user.vocabulary.create', compact('categories', 'familiarities'));
     }
 
     /**
@@ -69,8 +72,9 @@ class VocabularyController extends Controller
     public function edit($vocabularyId)
     {
         $categories = Category::pluck('name', 'id');
+        $familiarities = Familiarity::pluck('degree', 'id');
         $vocabulary =$this->vocabulary->find($vocabularyId);
-        return view('user.vocabulary.edit', compact('categories', 'vocabulary'));
+        return view('user.vocabulary.edit', compact('categories', 'familiarities' ,'vocabulary'));
     }
 
     /**
@@ -97,7 +101,8 @@ class VocabularyController extends Controller
     public function show($vocabularyId)
     {
         $vocabulary = $this->vocabulary->find($vocabularyId);
-        return view('user.vocabulary.show', compact('vocabulary'));
+        $familiarities = Familiarity::pluck('degree', 'id');
+        return view('user.vocabulary.show', compact('vocabulary', 'familiarities'));
     }
 
     /**

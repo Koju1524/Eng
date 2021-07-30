@@ -8,6 +8,7 @@
       <th scope="col">#</th>
       <th scope="col">Word</th>
       <th scope="col">Sentence</th>
+      <th scope="col">Familiarity</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
     </tr>
@@ -17,6 +18,11 @@
         <th scope="row">{{ $vocabulary->category_id }}</th>
         <td>{{ $vocabulary->word }}</td>
         <td>{{ $vocabulary->sentence }}</td>
+        @if (!empty($vocabulary->familiarity_id) && $vocabulary->familiarity_id <= count($familiarities))
+          <td>{{ $vocabulary->Familiarity->degree }}</td>
+        @else
+          <td></td>
+        @endif
         <td>
           <a href="{{ route('vocabulary.edit', $vocabulary->id) }}">
             <button class="btn btn-success">Edit</button>
