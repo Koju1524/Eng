@@ -50,7 +50,7 @@
         </tbody>
       @endforeach
     </table>
-    {{ $vocabulary->appends(request()->input())->links() }}
+    {{ $vocabulary->appends(request()->input())->links('vendor.pagination.simple-default') }}
   </div>
 </div>
 
