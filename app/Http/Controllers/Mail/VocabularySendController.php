@@ -17,7 +17,7 @@ class VocabularySendController extends Controller
      * Send email about vocab to user
      *
      * @param integer $vocabularyId
-     * @return void
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function sendMail($vocabularyId)
     {
