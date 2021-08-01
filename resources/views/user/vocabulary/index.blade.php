@@ -17,7 +17,7 @@
         <th scope="col">Word</th>
         <th scope="col">Familiarity</th>
         <th scope="col">Show</th>
-        <th scope="col">Edit</th>
+        <th scope="col">Mail</th>
         <th scope="col">Delete</th>
       </tr>
       </thead>
@@ -37,9 +37,9 @@
               </a>
             </td>
             <td>
-              <a href="{{ route('vocabulary.edit', $word->id)}}">
-                <button class="btn btn-success">Edit</button>
-              </a>
+              {!! Form::open(['route' => ['vocabularySend.sendMail', $word->id], 'method' => 'POST']) !!}
+                {!! Form::button('Send', ['class' => 'btn btn-success', 'type' => 'submit']) !!}
+              {!! Form::close() !!}
             </td>
             <td>
               {!! Form::open(['route' => ['vocabulary.destroy', $word->id], 'method' => 'DELETE']) !!}

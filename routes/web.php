@@ -19,6 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::prefix('admin')->group(function () {
+});
+
+Route::group(['namespace' => 'Mail'], function () {
+    Route::post('/vocabularySendMail/{id}', 'VocabularySendController@sendMail')->name('vocabularySend.sendMail');
+});
+
 Route::group(['prefix' => 'vocabulary', 'as' => 'vocabulary.', 'namespace' => 'User'], function () {
     Route::get('/', 'VocabularyController@index')->name('index');
     Route::get('/create', 'VocabularyController@create')->name('create');
