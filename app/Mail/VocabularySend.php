@@ -36,7 +36,7 @@ class VocabularySend extends Mailable
      */
     public function build()
     {
-        $this->from('English_app@example.com')
+        $this->from('English_app@example.com') //override?? .env (MAIL_FROM_ADDRESS)
               ->subject('New Vocabulary')
               ->view('emails.vocabularySend')
               ->with([
